@@ -1,0 +1,24 @@
+<!-- <h1>Simple calculator is build with angular... </h1><hr> -->
+<div class="container">
+
+<div class="card">
+    <div class="card-header">
+       <h3> CALCULATOR</h3>
+    </div>
+    <div class="card-body">
+        <div class="form-group d-flex flex-row">
+            <input  type="number" name="num1" [(ngModel)]="num1"class="form-control">
+            <input  type="number" name="num2"[(ngModel)]="num2" class="form-control">
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+            <button class="btn btn-success" (click)="addition()">SUM</button>
+            <button class="btn btn-primary" (click)="sub()">Subtract</button>
+            <button class="btn btn-info" (click)="mul()">Multiply</button>
+            <button class="btn btn-danger" (click)="div()">division</button>
+        </div>
+    </div>
+    <div class="card-footer">
+        <h4>The sum of {{num1}} and {{num2}} is = {{result}}</h4>
+    </div>
+</div>
+</div>

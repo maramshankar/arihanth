@@ -1,0 +1,22 @@
+<h1 style= "color:gray">Employee Details</h1>
+<hr/>
+{{errorMsg.message}}
+<table border="2">
+    <tr *ngIf= "employees.length>0" appMycolor>
+        <td>
+            <h4>Employee Id</h4>
+        </td>
+        <td>
+            <h4>Employee Name</h4>
+        </td>
+        <td>
+            <h4>Employee Salary</h4>
+        </td>
+    </tr>
+
+    <tr *ngFor = "let emp of employees" appMycolor>
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName}}</td>
+        <td>{{emp.salary}}</td>
+    </tr>
+</table>

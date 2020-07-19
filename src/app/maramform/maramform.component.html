@@ -1,0 +1,87 @@
+<h1>Temple Driven Form</h1>
+<hr />
+<div class="container">
+    <div class="jumbotron">
+        <form #maramForm="ngForm" (ngSubmit)="submit(maramForm.value)">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input class="form-control" name=Fname #Fname="ngModel" ngModel placeholder="Enter First Name"
+                            required minlength="3" pattern="^[A-Za-z]+$">
+                        <div *ngIf="Fname.errors && (Fname.touched || Fname.dirty)" class="alert alert-danger">
+                            <div *ngIf="Fname.errors.required">
+                                Please Enter First Name
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input class="form-control" name=Lname #Lname="ngModel" ngModel placeholder="Enter Last Name"
+                            required minlength="3" pattern="^[A-Za-z]+$">
+
+                        <div *ngIf="Lname.errors && (Lname.touched || Lname.dirty)" class="alert alert-danger">
+                            <div *ngIf="Lname.errors.required">
+                                Please Enter Last Name
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name=email #email="ngModel" ngModel placeholder="Enter Email"
+                            required minlength="2" pattern="^[A-Za-z0-9\.-]+@[A-Za-z0-9]+.[a-z]{2,3}$">
+
+                        <div *ngIf="email.errors && (email.touched ||email.dirty)" class="alert alert-danger">
+                            <div *ngIf="email.errors.required">
+                                Please Enter Email
+                            </div>
+                            <div *ngIf="email.errors.pattern">
+                                Please Enter Correct Email
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Contact No</label>
+                        <input class="form-control" name=cNo #cNo="ngModel" ngModel placeholder="Enter Contact No"
+                            required pattern="[0-9]{10}">
+                        <div *ngIf="cNo.errors && (cNo.touched ||cNo.dirty)" class="alert alert-danger">
+                            <div *ngIf="cNo.errors.required">
+                                Please Enter Contact Number
+                            </div>
+                            <div *ngIf="cNo.errors.pattern">
+                                Please Enter Correct Number
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div ngModelGroup="Address">
+                <div class="form-group">
+                    <label>Street</label>
+                    <input class="form-control" name=street #street="ngModel" ngModel placeholder="Enter Street Name">
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input class="form-control" name=city #city="ngModel" ngModel placeholder="Enter City Name">
+                </div>
+            </div>
+            <button class="btn btn-primary" [disabled]="!maramForm.form.valid">Submit</button>
+        </form>
+    </div>
+</div>

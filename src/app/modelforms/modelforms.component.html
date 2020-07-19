@@ -1,0 +1,122 @@
+<div style = "padding-right: 15px;" class="container-fluid">
+    <!-- <form header> -->
+        <div class="row">
+            <div class="col">
+                <h1>Reactive form</h1>
+                <hr>
+            </div>
+        </div>
+        <!-- main form-->
+        <div class="row">
+            <form action="" style = "width: 100%;" [formGroup]="reactiveForm">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="fnText">First Name</label>
+                                <input type="text" class="form-control" formControlName="firstName" placeholder="Enter first name">
+                                <small class="form-text custom-invalid-feedback">Field is required</small>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="lnText">Last Name</label>
+                                <input type="text" class="form-control" formControlName="lastName" placeholder="enter last name">
+                                <small class="form-text custom-invalid-feedback">Field is required</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- seperator -->
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- addressform -->
+                    <div class="row" formGroupName="Address">
+                        <div class="col-12">
+                            <label for="" class= "form-check-inline">Choose Type</label>
+
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" formControlName="addressType"
+                                value="permanent">
+                                <label for="inlineRadio1" class="form-check-label">permanent</label>
+                            </div>
+                             
+                             <div class="form-check form-check-inline">
+                                 <input type="radio" class="form-check-input" formControlName="addressType"
+                                 value="Temporary">
+                                 <label for="inlineRadio2" class="form-check-label">Temporary</label>
+                             </div>
+                               <label for="inlineRadio2" class="form-check-inline">ExpiryDate</label>
+                               <div class="form-check form-check-inline">
+                                   <input type="Date" class="form-control" formControlName="expiryDate">
+                               </div>
+                               <small class=" form-text custom-invalid-feedback">Pick one option.</small>                           
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="addText">StreetAddress</label>
+                                  <input type="text" class="form-control" formControlName="streetAddress"
+                                  placeholder="Enter street address">
+                                  <small class="form-text custom-invalid-feedback">Field is Required</small>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" formControlName="city" 
+                                        placeholder="Enter City Name">
+                                        <small class="form-text custom-invalid-feedback">Field is Required</small>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <select  id="inputState" class="form-control" formControlName="state">
+                                            <option selected [ngValue]="null">Choose...</option>
+                                            <option *ngFor= "let item of states" [value]='item'>{{item}}</option>
+                                            <small class="form-text custom-invalid-feedback">Field is required</small>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="zipcode">Zip Code</label>
+                                        <input type="text" class="form-control" formControlName="zipcode" placeholder="Enter zipcode">
+                                        <small class="form-text custom-invalid-feedback">Field is Required</small>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+
+                  <div class="row justify-content-center">
+                      <div class="col-2">
+                          <button class="btn btn-primary" type="button" (click)="subHandler()">Submit</button>
+                      </div>
+                  </div>
+
+
+
+                </div>
+            </form>
+        </div>
+    </div>

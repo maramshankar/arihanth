@@ -1,0 +1,21 @@
+<h1>Ricky component</h1>
+<hr>
+<pre>
+<table border="1">
+    <tr *ngIf="myEmployees.length>0">
+        <td>Employee Id</td>
+        <td>Employee Name</td>
+        <td>Employee Email</td>
+    </tr>
+
+    <tr *ngFor = "let emp of myEmployees">
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.email}}</td>
+
+    </tr>
+</table>
+UserName:<input type="text" #uname>
+Email   :<input type="text" #email>
+<button class="btn btn-info" (click)="getData(uname.value, email.value); dataFrmRicky1()">ChangeData</button>
+</pre>

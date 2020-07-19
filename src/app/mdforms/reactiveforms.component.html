@@ -1,0 +1,23 @@
+<h1>Employee Information Using Reactive Form</h1>
+<hr/>
+<div class="container">
+    <div class="jumbotron">
+        <form [formGroup]="empForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <label>Employee Id</label>
+                <input formControlName="empId" class="form-control" placeholder="Emp Id">
+            </div>
+
+            <div class="form-group">
+                <label>Employee Name</label>
+                <input [class.invalid]="(empForm.get('empName').invalid && empForm.get('empName').touched)" class="form-control" formControlName="empName" placeholder="Emp Name">
+              <div *ngIf="(empForm.get('empName').invalid && empForm.get('empName').touched)">
+                <span class="text-danger" *ngIf="empForm.get('empName').errors?.required">Emp Name Is Required</span>
+                <span class="text-danger" *ngIf="empForm.get('empName').errors?.minlength">Emp Name is min 5 chars</span>
+            </div>
+            </div>
+
+            <button class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>

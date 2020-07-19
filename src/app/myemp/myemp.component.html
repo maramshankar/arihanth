@@ -1,0 +1,21 @@
+<h1>Employee Information</h1>
+<hr/>
+search Name: <input type="text" [(ngModel)]="searchByName">
+
+<table border ="1">
+<tr>
+    <th>Employee Image</th>
+    <th>Employee Name</th>
+    <th>Employee Id</th>
+    <th>Employee Salary</th>
+    <th>Employee DOB</th>
+</tr>
+
+<tr appMycolor *ngFor= "let emp of  employees |mysort|search:searchByName">
+    <td><img width="30%" height="25%" [src]="emp.empImg"></td>
+    <td>{{emp.empName | titlecase}}</td>
+    <td>{{emp.empId}}</td>
+    <td>{{emp.salary}}</td>
+    <td>{{emp.dob}}</td>
+</tr>
+</table>

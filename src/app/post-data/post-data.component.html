@@ -1,0 +1,20 @@
+<p>post-data!</p>
+<div class="container">
+    <div class="jumbotron">
+        <form #form = "ngForm" (ngSubmit)="postdata(form.value)">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="tit" ngModel>
+            </div>
+
+            <div class="form-grop">
+                <label for="">Body</label>
+                <input type="text" name="tit" ngModel class="form-control">
+            </div>
+
+            <div class="form-grop">
+                <button class="btn btn-primary">Post</button>
+            </div>
+        </form>
+    </div>
+</div>

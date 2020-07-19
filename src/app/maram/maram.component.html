@@ -1,0 +1,20 @@
+<h1>Student Information</h1>
+<hr/><hr/>
+Search Student Name : <input [(ngModel)]="searchByName" type="text">
+<table border = "1">
+    <tr appMaramcolor>
+        <td>Student Image</td>
+        <td>Student Name</td>
+        <td>Student Roll No</td>
+        <td>Student Fee</td>
+        <td>Student DOB</td>
+    </tr>
+
+    <tr appMycolor *ngFor="let std of students | maram | maramsearch:searchByName">
+        <td><img width="40%" height="40%" [src]="std.stdImg"></td>
+        <td>{{std.stdName}}</td>
+        <td>{{std.stdRollNo}}</td>
+        <td>{{std.Fee}}</td>
+        <td>{{std.dob}}</td>
+    </tr>
+</table>

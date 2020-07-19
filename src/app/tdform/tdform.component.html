@@ -1,0 +1,55 @@
+<h2>User Registration Form</h2>
+<hr/>
+<div class="container">
+    
+    <form #userForm = "ngForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" name="name" #nameRef="ngModel" ngModel class="form-control" required 
+            minlength="5" pattern="[a-z]+">
+              <div *ngIf="nameRef.errors && (nameRef.touched || nameRef.dirty)" class="alert alert-danger">
+                  <div *ngIf="nameRef.errors.required">
+                      Please Enter User Name
+                  </div>
+
+                  <div [hidden]="!nameRef.errors.minlength">
+                     Please Enter atleast min 5 characters
+                  </div>
+
+                  <div [hidden]="!nameRef.errors.pattern">
+                      Please Enter correct Pattern
+                    </div>
+
+              </div>
+              
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input name="email" #emailRef="ngModel" 
+            ngModel class="form-control" placeholder="Enter Email" required 
+            pattern="^[a-zA-z0-9\.-]+@[a-z0-9-]+.[a-z]{2,8}$">
+            <div *ngIf="emailRef.errors && (emailRef.touched || emailRef.dirty)"
+             class="alert alert-danger">
+             <div *ngIf="emailRef.errors.required">
+                 Please Enter Email
+                </div>
+                <div *ngIf="emailRef.errors.pattern">
+                    Please Enter Correct Email Pattern
+                   </div>
+                 
+            </div>
+
+        </div>
+        <div ngModelGroup="Address">
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" name="city" #cityRef="ngModel" ngModel class="form-control" required> 
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+
+    </form>
+</div>
+

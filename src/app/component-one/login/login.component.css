@@ -1,0 +1,9 @@
+h2{
+    text-align: center;
+}
+/* .btn-primary.disabled, .btn-primary :disabled {
+    cursor: not-allowed;
+} */
+button:disabled {
+    cursor: not-allowed;
+}

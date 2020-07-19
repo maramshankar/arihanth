@@ -1,0 +1,30 @@
+<!-- <p>login works!</p>
+<p>
+    <a [routerLink] = "['/register']">Register</a>
+</p> -->
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>Login Here</h2>
+        <form #loginForm= "ngForm" (ngSubmit)="login(loginForm.value)">
+            <div class="form-group">     
+                <label>User Name</label>
+                <input type="text" class="form-control" [ngClass]="{'is-invalid': uname.touched && uname.invalid}" name = "uname" #uname="ngModel" ngModel required>
+              <div class="invalid-feedback">Please Enter User Name</div>
+            </div>
+        
+            <div class="form-group">
+                 <label for="">Password</label>
+                <input type="password" [ngClass]="{'is-invalid':password.touched && password.invalid}"name= "password" #password="ngModel" ngModel class="form-control" required>
+                <div class="invalid-feedback">Please Enter Your Password</div>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox">
+                <label class="ml-1">Remember Me</label>
+            </div>
+
+           <button class="btn btn-primary btn-md btn-block" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div>
+</div>
